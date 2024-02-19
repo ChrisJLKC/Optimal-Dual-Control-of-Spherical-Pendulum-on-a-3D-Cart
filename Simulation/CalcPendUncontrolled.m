@@ -21,11 +21,14 @@ function [Mx, My, xm, ym, zm, t] = CalcPendUncontrolled()
     ux = 0;
     uy = 0;
     
+    % Function for linear Dynamics.
     F = @(xBar, yBar, t) Dynamics3DSphericalPendulumOn3DCart(m, L, M, g, xBar, yBar, d, ux, uy);
-
+    
+    % Stating that the first state is 0.
     sOx = xBar0;
     sOy = yBar0;
     
+    % Setting up parameters.
     xm = zeros(1, length(t));
     ym = zeros(1, length(t));
     zm = zeros(1, length(t));
@@ -35,7 +38,9 @@ function [Mx, My, xm, ym, zm, t] = CalcPendUncontrolled()
     theta = zeros(1, length(t));
     phi = zeros(1, length(t));
     
+    %% 4th Order Runge Kutta Integration.
     for idx = 1:(length(t) - 1)
+        % Integrating x and y values.
         [k_1x, k_1y] = F(sOx(:, idx), sOy(:, idx), t(idx));
         [k_2x, k_2y] = F(sOx(:, idx) + (k_1x / 2) * h, sOy(:, idx) + (k_1y / 2) * h, t(idx) + h / 2);
         [k_3x, k_3y] = F(sOx(:, idx) + (k_2x / 2) * h, sOy(:, idx) + (k_2y / 2) * h, t(idx) + h / 2);
@@ -43,18 +48,20 @@ function [Mx, My, xm, ym, zm, t] = CalcPendUncontrolled()
 
         sOx(:, idx + 1) = sOx(:, idx) + (1/6) * (k_1x + (2 * k_2x) + (2 * k_3x) + k_4x) * h;
         sOy(:, idx + 1) = sOy(:, idx) + (1/6) * (k_1y + (2 * k_2y) + (2 * k_3y) + k_4y) * h;
-    
+        
+        % Getting the endpoint position using Kinematics.
         xm(idx) = sOx(1, idx) + L * sin(sOx(3, idx));
         ym(idx) = -L * cos(sOx(3, idx));
         zm(idx) = sOy(1, idx) + L * sin(sOy(3, idx));
-    
+        
+        % Storing the cart x and y position and angles.
         Mx(idx) = sOx(1, idx);
         My(idx) = sOy(1, idx);
     
         theta(idx) = sOx(3, idx) * 180 / pi;
         phi(idx) = sOy(3, idx) * 180 / pi;
     end
-
+    %% Show relevant figures. 
     if (ShowFig == 1)
         figure;
         hold on
