@@ -16,3 +16,9 @@ __Uncontrolled:__
 
 https://github.com/ChrisJLKC/Optimal-Dual-Control-of-Spherical-Pendulum-on-a-3D-Cart/assets/49998052/f8675095-e5f6-4b52-811d-0f9dea6b9301
 
+## Trajectory Maps
+__Controlled:__
+![Controlled_Path](https://github.com/ChrisJLKC/Optimal-Dual-Control-of-Spherical-Pendulum-on-a-3D-Cart/assets/49998052/b77134ae-8214-42ba-9d76-5412ef7c143f)
+
+__Uncontrolled:__
+![Uncontrolled_Path](https://github.com/ChrisJLKC/Optimal-Dual-Control-of-Spherical-Pendulum-on-a-3D-Cart/assets/49998052/34ee1c87-1bcf-4142-a51d-138175fb59e1)
