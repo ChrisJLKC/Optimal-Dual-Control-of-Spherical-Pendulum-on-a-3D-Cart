@@ -5,3 +5,9 @@ the overall system to be monitored like a traditional pendulum on a cart in 2D s
 this repository dictates.
 
 ## Videos
+__Controlled:__
+https://github.com/ChrisJLKC/Optimal-Dual-Control-of-Spherical-Pendulum-on-a-3D-Cart/assets/49998052/1afa99b4-a2fc-45e8-b6b3-cb3182aa1617
+
+__Uncontrolled:__
+https://github.com/ChrisJLKC/Optimal-Dual-Control-of-Spherical-Pendulum-on-a-3D-Cart/assets/49998052/f8675095-e5f6-4b52-811d-0f9dea6b9301
+
